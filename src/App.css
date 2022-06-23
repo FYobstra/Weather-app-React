@@ -1,38 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
+  background-image: url('image/new.jpg');
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+.container {
+  height: 90vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  
+}
+.search {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.search input {
+  width: 60%;
+  margin-top: 20px;
+  padding: .9rem;
+  border-radius: 20px;
+  font-style: italic;
+  font-size: 1rem;
+  border: none;
+  background-color: rgba(255,255,255,0.5);
+  color: #ffff;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search input::placeholder {
+  color: #ffff;
+}
+.search input:focus-visible {
+  outline: none;
+}
+.temperature {
+  margin-left: 10%;
+  margin-top: 15%;
+}
+.temperature h3 {
+  margin-bottom: 10px;
+  color: #ffff;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.temperature h1 {
+  color: #ffff;
+  font-size: 4.2rem;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-weight:900;
+}
+.temperature p {
+  position: relative;
+  right: -90%;
+  transform-origin: 0 0;
+  transform: rotate(270deg);
+  color: #ffff;
+  margin-top: 2px;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.extras {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  margin: 1rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: 20px;
+}
+.extras li {
+  list-style-type: none;
+}
+.extras h4 {
+  color: #ffff;
+  font-size: 1.1rem;
+}
+.extras p {
+  color: #ffff;
+  font-weight: 500;
+}
+#error {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  color: rgb(218, 0, 0);
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px 20px;
+  border-radius: 0 20px 20px 0;
 }
