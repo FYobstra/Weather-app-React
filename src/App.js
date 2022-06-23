@@ -7,7 +7,7 @@ function App() {
 
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
-  const [show, setShow] = useState('hidden');
+  const [show, setShow] = useState(false);
 
   const apiKey = '370d912fc60a1cca6e6b369c6e98cc96';
   
@@ -19,15 +19,15 @@ function App() {
       .then ((response) => {
         setData(response.data)
         setLocation("")
-        setShow('hidden')
+        setShow(false)
       })
       .catch((error) => {
-        setShow('visible')
+        setShow(true)
         console.log(error)
       })
     }
   } 
-  
+  /* Verificar si se puede ahorrar el codigo dentro de las estiquetas, consultando si afuera de las mismas tenemos "data" */
   return (
     <div className="App">
       <div className='container'>
@@ -38,14 +38,16 @@ function App() {
           onKeyPress={searchLocation}
           placeholder='Ingrese su ciudad'
         />
-        <p id='error' style={{visibility: show}}>La ciudad ingresada no existe</p>
+        { show &&
+          <p id='error'>La ciudad ingresada no existe</p>
+        }
         </div>
         <div className='temperature'>
           <h3>{data.name ? data.name : null}</h3>
           <h1>{data.main ? `${(data.main.temp).toFixed(1)} °C` : null}</h1>
           <p>{data.weather ? data.weather[0].description : null}</p>
         </div>
-        {data.name !== undefined &&
+        {data.name &&
         <div className='extras'>
             <li>
               <h4>{data.main ? `${(data.main.feels_like).toFixed(1)} °C` : null}</h4>
