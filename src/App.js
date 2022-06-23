@@ -27,7 +27,6 @@ function App() {
       })
     }
   } 
-  /* Verificar si se puede ahorrar el codigo dentro de las estiquetas, consultando si afuera de las mismas tenemos "data" */
   return (
     <div className="App">
       <div className='container'>
